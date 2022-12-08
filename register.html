@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
 
 </head>
@@ -58,7 +59,7 @@
                         </div>
                         <div class="form-group icon-input mb-3">
                             <input type="text" class="style2-input ps-5 form-control text-grey-900 font-xss ls-3"
-                                   placeholder="Contact Number">
+                                   placeholder="Contact Number with Country Code" id="number">
                             <i class="font-sm ti-microphone text-grey-500 pe-0"></i>
                         </div>
                         <div class="form-group icon-input mb-1">
@@ -66,9 +67,12 @@
                                    placeholder="Password">
                             <i class="font-sm ti-lock text-grey-500 pe-0"></i>
                         </div>
+                        <div class="form-group icon-input mb-1">
+                            <div id="recaptcha-container"></div>
+                        </div>
                         <div class="col-sm-12 p-0 text-left">
-                            <div class="form-group mb-1"><a href="#"
-                                                            class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Register</a>
+                            <div class="form-group mb-1"><button type="button"
+                                                            class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0" onclick="phoneAuth();">Register</button>
                             </div>
                             <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Already have account <a
                                     href="login.html" class="fw-700 ms-1">Login</a></h6>
@@ -82,8 +86,28 @@
 </div>
 
 
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAE5tnqPkbZAMVNJx6KJZm_c0up8au3jpM",
+        authDomain: "manpower-a2e73.firebaseapp.com",
+        projectId: "manpower-a2e73",
+        storageBucket: "manpower-a2e73.appspot.com",
+        messagingSenderId: "741394482552",
+        appId: "1:741394482552:web:3a2cfabfda4af5c1cf348d",
+        measurementId: "G-DTGNPGHSDD"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+<script src="js/firebase.js"></script>
 <script src="js/plugin.js"></script>
 <script src="js/scripts.js"></script>
+
 
 </body>
 
