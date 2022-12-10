@@ -30,9 +30,9 @@
                     class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">ManPower. </span>
             </a>
 
-            <a href="login.html"
+            <a href="login.php"
                class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl">Login</a>
-            <a href="register.html"
+            <a href="register.php"
                class="header-btn d-none d-lg-block bg-current fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl">Register</a>
         </div>
     </div>
@@ -54,7 +54,7 @@
                             <i class="font-sm ti-lock text-grey-500 pe-0"></i>
                         </div>
                         <div class="col-sm-12 p-0 text-left">
-                            <div class="form-group mb-1"><a href="login.html"
+                            <div class="form-group mb-1"><a href="login.php"
                                                             class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Change
                                 Password</a></div>
 
@@ -95,7 +95,7 @@
                                 <input type="checkbox" class="form-check-input mt-2" id="exampleCheck5">
                                 <label class="form-check-label font-xsss text-grey-500" for="exampleCheck5">Remember
                                     me</label>
-                                <a href="forgot.html" class="fw-600 font-xsss text-grey-700 mt-1 float-right">Forgot
+                                <a href="forgot.php" class="fw-600 font-xsss text-grey-700 mt-1 float-right">Forgot
                                     your Password?</a>
                             </div>
                         </form>
@@ -105,7 +105,7 @@
                                                             class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Login</a>
                             </div>
                             <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have account <a
-                                    href="register.html" class="fw-700 ms-1">Register</a></h6>
+                                    href="register.php" class="fw-700 ms-1">Register</a></h6>
                         </div>
                         <div class="col-sm-12 p-0 text-center mt-3 ">
 
@@ -175,7 +175,7 @@
                                                             class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Register</a>
                             </div>
                             <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Already have account <a
-                                    href="login.html" class="fw-700 ms-1">Login</a></h6>
+                                        href="login.php" class="fw-700 ms-1">Login</a></h6>
                         </div>
                         <div class="col-sm-12 p-0 text-center mt-3 ">
 
@@ -204,5 +204,5 @@
 </body>
 
 
-<!-- Mirrored from uitheme.net/sociala/forgot.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Dec 2022 09:19:18 GMT -->
+<!-- Mirrored from uitheme.net/sociala/forgot.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Dec 2022 09:19:18 GMT -->
 </html>
