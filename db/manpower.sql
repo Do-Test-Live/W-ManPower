@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `manpower`
+-- Database: `GogoJob`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'superadmin@manpower.com', '@BCD1234', '2022-12-10 07:10:41', '2022-12-10 07:10:41');
+(1, 'superadmin@GogoJob.com', '@BCD1234', '2022-12-10 07:10:41', '2022-12-10 07:10:41');
 
 -- --------------------------------------------------------
 

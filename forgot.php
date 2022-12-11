@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ManPower</title>
+    <title>GogoJob</title>
 
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/feather.css">
@@ -27,7 +27,7 @@
     <div class="nav-header bg-transparent shadow-none border-0">
         <div class="nav-top w-100">
             <a href="index.html"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span
-                    class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">ManPower. </span>
+                    class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">GogoJob. </span>
             </a>
 
             <a href="login.php"

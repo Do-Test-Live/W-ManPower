@@ -10,7 +10,7 @@ if(isset($_POST['login'])){
     $number = mysqli_real_escape_string($con, $_POST['number']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $key = 'ManPower';
+    $key = 'GogoJob';
     $Pwd_peppered = Hash_hmac("Sha256", $password, $key);
 
     $query = $con->query("select * from user where `contact_number` = '$number'");
@@ -122,6 +122,8 @@ if(isset($_POST['login'])){
             </div>
         </div>
     </div>
+    <!--whatsapp button-->
+    <?php include ('include/whatsapp.php');?>
 </div>
 
 

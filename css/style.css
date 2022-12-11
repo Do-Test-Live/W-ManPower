@@ -17290,3 +17290,23 @@ select.sort {
         font-size: 16px
     }
 }
+.feedback {
+    background-color : #0dbf42;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border-color: #0dbf42;
+}
+
+#mybutton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    #mybutton {
+        bottom: 70px;
+        right: 20px;
+    }
+}

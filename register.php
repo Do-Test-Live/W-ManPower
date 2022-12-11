@@ -9,7 +9,7 @@ if (isset($_POST['add_user'])){
     $user_name = mysqli_real_escape_string($con, $_POST['user_name']);
     $number = mysqli_real_escape_string($con, $_POST['number']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
-    $key = 'ManPower';
+    $key = 'GogoJob';
     $Pwd_peppered = Hash_hmac("Sha256", $password, $key);
     $Pwd_hashed = Password_hash($Pwd_peppered, PASSWORD_ARGON2ID);
 
@@ -68,7 +68,7 @@ if (isset($_POST['add_user'])){
 
     <div class="nav-header bg-transparent shadow-none border-0">
         <div class="nav-top w-100">
-            <a href="index.html"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span
+            <a href="#"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span
                         class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">GogoJob. </span>
             </a>
 
@@ -113,16 +113,16 @@ if (isset($_POST['add_user'])){
                             <i class="font-sm ti-user text-grey-500 pe-0"></i>
                             <input type="text" name="user_name" autocomplete="off"
                                    class="style2-input ps-5 form-control text-grey-900 font-xsss fw-600"
-                                   placeholder="Your Name">
+                                   placeholder="Your Name" required>
                         </div>
                         <div class="form-group icon-input mb-3">
                             <input type="text" class="style2-input ps-5 form-control text-grey-900 font-xss ls-3"
-                                   placeholder="Contact Number with Country Code" name="number" id="number">
+                                   placeholder="Contact Number" name="number" id="number" value="+852" required>
                             <i class="font-sm ti-microphone text-grey-500 pe-0"></i>
                         </div>
                         <div class="form-group icon-input mb-1">
                             <input type="Password" name="password" class="style2-input ps-5 form-control text-grey-900 font-xss ls-3"
-                                   placeholder="Password" autocomplete="off">
+                                   placeholder="Password" autocomplete="off" required>
                             <i class="font-sm ti-lock text-grey-500 pe-0"></i>
                         </div>
                         <div class="form-group icon-input mb-1">
@@ -144,6 +144,8 @@ if (isset($_POST['add_user'])){
             </div>
         </div>
     </div>
+    <!--whatsapp button-->
+    <?php include ('include/whatsapp.php');?>
 </div>
 
 
@@ -152,9 +154,9 @@ if (isset($_POST['add_user'])){
     // Your web app's Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyAE5tnqPkbZAMVNJx6KJZm_c0up8au3jpM",
-        authDomain: "manpower-a2e73.firebaseapp.com",
-        projectId: "manpower-a2e73",
-        storageBucket: "manpower-a2e73.appspot.com",
+        authDomain: "GogoJob-a2e73.firebaseapp.com",
+        projectId: "GogoJob-a2e73",
+        storageBucket: "GogoJob-a2e73.appspot.com",
         messagingSenderId: "741394482552",
         appId: "1:741394482552:web:3a2cfabfda4af5c1cf348d",
         measurementId: "G-DTGNPGHSDD"

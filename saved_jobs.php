@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ManPower</title>
+    <title>GogoJob</title>
 
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/feather.css">
@@ -65,8 +65,10 @@ if (!isset($_SESSION['user'])) {
                                     while($post = mysqli_fetch_assoc($fetch_post_details)){
                                         ?>
                                         <div class="row ps-2 pe-1">
-                                            <div class="col-md-12 col-sm-12 pe-2 ps-2">
-                                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3">
+                                            <div class="col-md-12 col-sm-12 pe-2 ps-2" style="box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
+-webkit-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
+-moz-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);">
+                                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden">
                                                     <div class="card-body d-block w-100 pe-4 ps-4 pb-4 pt-0 text-left position-relative">
                                                         <div class="clearfix">
                                                         </div>
@@ -74,7 +76,7 @@ if (!isset($_SESSION['user'])) {
                                                             <div class="col-6 text-center my-auto">
                                                                 <div class="text-center">
                                                                     <h2 class="fw-700 font-xsss mt-3 mb-1"
-                                                                        style="font-size: 30px !important;"><?php echo $post['company_name'];?></h2>
+                                                                        style="font-size: 25px !important;"><?php echo $post['company_name'];?></h2>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
@@ -104,12 +106,14 @@ if (!isset($_SESSION['user'])) {
             </div>
 
         </div>
+        <!--whatsapp button-->
+        <?php include ('include/whatsapp.php');?>
     </div>
     <!-- main content -->
 
 
     <div class="app-footer border-0 shadow-lg bg-primary-gradiant">
-        <a href="index.html" class="nav-content-bttn nav-center"><i class="feather-home"></i></a>
+        <a href="index.php" class="nav-content-bttn nav-center"><i class="feather-home"></i></a>
         <a href="saved_jobs.php" class="nav-content-bttn"><i class="feather-package"></i></a>
         <a href="#" class="nav-content-bttn"><img src="images/female-profile.png" alt="user"
                                                   class="w30 shadow-xss"></a>
