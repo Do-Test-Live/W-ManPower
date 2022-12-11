@@ -99,7 +99,7 @@ if(isset($_POST['login'])){
 
                         <div class="form-group icon-input mb-3">
                             <i class="font-sm ti-email text-grey-500 pe-0"></i>
-                            <input type="text" class="style2-input ps-5 form-control text-grey-900 font-xsss fw-600" name="number"
+                            <input type="text" class="style2-input ps-5 form-control text-grey-900 font-xsss fw-600" name="number" value="+852"
                                    placeholder="Your Mobile Number">
                         </div>
                         <div class="form-group icon-input mb-1">

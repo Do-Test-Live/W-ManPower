@@ -17291,11 +17291,11 @@ select.sort {
     }
 }
 .feedback {
-    background-color : #0dbf42;
+    background-color: #0dbf4200;
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
-    border-color: #0dbf42;
+    border-color: #0dbf4200;
 }
 
 #mybutton {
