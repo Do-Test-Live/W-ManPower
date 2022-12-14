@@ -36,5 +36,13 @@
         </a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="document.php"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Document</span>
+        </a>
+    </li>
+
 </ul>
 <!-- End of Sidebar -->

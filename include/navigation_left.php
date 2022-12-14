@@ -9,6 +9,9 @@
                     <li><a href="saved_jobs.php" class="nav-content-bttn open-font"><i
                                 class="feather-award btn-round-md bg-red-gradiant me-3"></i><span>Saved Jobs</span></a>
                     </li>
+                    <li><a href="profile.php" class="nav-content-bttn open-font"><i
+                                    class="feather-user btn-round-md bg-gold-gradiant me-3"></i><span>Profile</span></a>
+                    </li>
 
                 </ul>
             </div>
