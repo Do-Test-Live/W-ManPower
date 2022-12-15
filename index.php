@@ -22,6 +22,7 @@ include("config/db_config.php");
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 
@@ -33,7 +34,24 @@ include("config/db_config.php");
 <div class="main-wrapper">
 
     <!-- navigation top-->
-    <?php include('include/navigation_top.php'); ?>
+    <div class="nav-header bg-white shadow-xs border-0">
+        <div class="nav-top">
+            <a href="index.php"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span
+                        class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">GogoJob. </span>
+            </a>
+            <a href="#" class="me-2 menu-search-icon mob-menu ms-5"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
+        </div>
+        <form class="float-left header-search" style="margin-left: 25%;">
+            <div class="form-group mb-0 icon-input">
+                <i class="feather-search font-sm text-grey-400"></i>
+                <input type="text" id="filter" placeholder="Start typing to search.." class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
+            </div>
+        </form>
+
+
+        <a href="logout.php" class="p-2 text-center ms-auto menu-icon">Log Out</a>
+
+    </div>
     <!-- navigation top -->
 
     <!-- navigation left -->
@@ -59,7 +77,7 @@ include("config/db_config.php");
                         if ($fetch_post->num_rows > 0) {
                             while ($post = mysqli_fetch_assoc($fetch_post)) {
                                 ?>
-                                <div class="row ps-2 pe-1">
+                                <div class="row ps-2 pe-1" id="post">
                                     <div class="col-md-12 col-sm-12 pe-2 ps-2" style="box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
 -webkit-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
 -moz-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);">
@@ -179,7 +197,37 @@ include("config/db_config.php");
     }
 </script>
 
+<script>
+    /*for search function*/
+    $(document).ready(function () {
+        $("#filter").keyup(function () {
+
+            // Retrieve the input field text and reset the count to zero
+            var filter = $(this).val(), count = 0;
+
+            // Loop through the comment list
+            $("#post").each(function () {
+
+                // If the list item does not contain the text phrase fade it out
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).fadeOut();
+
+                    // Show the list item if the phrase matches and increase the count by 1
+                } else {
+                    $(this).show();
+                    count++;
+                }
+            });
+
+            // Update the count
+            var numberItems = count;
+            console.log($("#filter-count").text("Number of Filter = " + count));
+        });
+    });
+</script>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
 <script src="js/plugin.js"></script>
 <script src="js/scripts.js"></script>
 
