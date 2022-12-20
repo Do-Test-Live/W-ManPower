@@ -112,13 +112,18 @@ include("config/db_config.php");
                                                         $saved = 1;
                                                     }
                                                     ?>
-                                                    <div class="col-12">
+                                                    <div class="col-6">
                                                         <button id="<?php echo $post['id']; ?>"
                                                                 onclick="save_post(<?php echo $post['id'] ?>)"
                                                                 class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white" <?php if ($saved == 0) echo 'disabled'; ?>>
                                                             <?php
                                                             if ($saved == 0) echo 'Post Saved'; else echo 'Save Post';
                                                             ?>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <button id="" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white">
+                                                           Apply Now
                                                         </button>
                                                     </div>
                                                 </div>

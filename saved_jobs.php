@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ('config/db_config.php');
+include('config/db_config.php');
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
 }
@@ -39,12 +39,14 @@ if (!isset($_SESSION['user'])) {
             <a href="index.php"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span
                         class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">GogoJob. </span>
             </a>
-            <a href="#" class="me-2 menu-search-icon mob-menu ms-5"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
+            <a href="#" class="me-2 menu-search-icon mob-menu ms-5"><i
+                        class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
         </div>
         <form class="float-left header-search" style="margin-left: 25%;">
             <div class="form-group mb-0 icon-input">
                 <i class="feather-search font-sm text-grey-400"></i>
-                <input type="text" id="filter" placeholder="Start typing to search.." class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
+                <input type="text" id="filter" placeholder="Start typing to search.."
+                       class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
             </div>
         </form>
 
@@ -55,7 +57,7 @@ if (!isset($_SESSION['user'])) {
     <!-- navigation top -->
 
     <!-- navigation left -->
-    <?php include ('include/navigation_left.php');?>
+    <?php include('include/navigation_left.php'); ?>
     <!-- navigation left -->
 
 
@@ -75,12 +77,12 @@ if (!isset($_SESSION['user'])) {
                         <?php
                         $user_id = $_SESSION['user'];
                         $fetch_post = $con->query("select * from saved_post where user_id = '$user_id'");
-                        if($fetch_post-> num_rows > 0){
-                            while($post_id = mysqli_fetch_assoc($fetch_post)){
+                        if ($fetch_post->num_rows > 0) {
+                            while ($post_id = mysqli_fetch_assoc($fetch_post)) {
                                 $post_found = $post_id['post_id'];
                                 $fetch_post_details = $con->query("select * from post where id = '$post_found'");
-                                if($fetch_post_details){
-                                    while($post = mysqli_fetch_assoc($fetch_post_details)){
+                                if ($fetch_post_details) {
+                                    while ($post = mysqli_fetch_assoc($fetch_post_details)) {
                                         ?>
                                         <div class="row ps-2 pe-1" id="post">
                                             <div class="col-md-12 col-sm-12 pe-2 ps-2" style="box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
@@ -94,19 +96,27 @@ if (!isset($_SESSION['user'])) {
                                                             <div class="col-6 text-center my-auto">
                                                                 <div class="text-center">
                                                                     <h2 class="fw-700 font-xsss mt-3 mb-1"
-                                                                        style="font-size: 25px !important;"><?php echo $post['company_name'];?></h2>
+                                                                        style="font-size: 25px !important;"><?php echo $post['company_name']; ?></h2>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="text-center">
-                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary'];?></h2>
+                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary']; ?></h2>
                                                                 </div>
                                                                 <div class="text-center">
-                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location'];?></h2>
+                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location']; ?></h2>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="row mt-3 text-center">
+                                                            <div class="col-12">
+                                                                <butto class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white">
+                                                                    Apply Now
+                                                                </butto>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -118,14 +128,13 @@ if (!isset($_SESSION['user'])) {
                         ?>
 
 
-
                     </div>
                 </div>
             </div>
 
         </div>
         <!--whatsapp button-->
-        <?php include ('include/whatsapp.php');?>
+        <?php include('include/whatsapp.php'); ?>
     </div>
     <!-- main content -->
 
