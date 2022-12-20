@@ -175,8 +175,8 @@ if (isset($_POST['add_post'])){
             <div class="modal-body">
                 <form action="" method="post">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Company Name</label>
-                        <input type="text" name="company_name" class="form-control" id="exampleInputEmail1" placeholder="Enter company name">
+                        <label for="exampleInputEmail1">Position</label>
+                        <input type="text" name="company_name" class="form-control" id="exampleInputEmail1" placeholder="Position">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Salary</label>

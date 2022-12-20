@@ -110,9 +110,25 @@ if (!isset($_SESSION['user'])) {
                                                         </div>
                                                         <div class="row mt-3 text-center">
                                                             <div class="col-12">
-                                                                <butto class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white">
-                                                                    Apply Now
-                                                                </butto>
+                                                                <?php
+                                                                $select_query = $con->query("SELECT * FROM `applicants` WHERE user_id = '$user_id' and job_id = '$post_found'");
+                                                                if($select_query-> num_rows > 0){
+                                                                    $applied = 0;
+                                                                    while($status = mysqli_fetch_assoc($select_query)){
+                                                                        if($status['status'] == 1){
+                                                                            $applied = 2;
+                                                                        }
+                                                                    }
+                                                                }else{
+                                                                    $applied = 1;
+                                                                }
+
+                                                                ?>
+                                                                <button onclick="apply(<?php echo $post['id'];?>)" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0) echo 'disabled'; ?>>
+                                                                    <?php
+                                                                    if ($applied == 0) echo 'Pending'; elseif ($applied == 1)  echo 'Apply Now'; elseif ($applied == 2)  echo 'Approved';
+                                                                    ?>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -191,6 +207,32 @@ if (!isset($_SESSION['user'])) {
 </div>
 
 <script>
+//for apply
+    function apply(clicked) {
+        var post_id = clicked;
+        $.ajax({
+            url: "apply.php",
+            type: "POST",
+            data: {
+                post_id: post_id
+            },
+            cache: false,
+            success: function (dataResult) {
+                var Result = JSON.parse(dataResult);
+                if (Result.statusCode == 200) {
+                    alert("Successfully Applied for the Job");
+                    console.log(post_id);
+                } else if (Result.statusCode == 201) {
+                    alert("Error occured !");
+                }else if (Result.statusCode == 202) {
+                    alert("You have already applied for the job!");
+                }
+
+            }
+        });
+    }
+
+
     /*for search function*/
     $(document).ready(function () {
         $("#filter").keyup(function () {
