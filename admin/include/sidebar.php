@@ -45,7 +45,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="document.php"
+        <a class="nav-link collapsed" href="applicant.php"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Applicants</span>
