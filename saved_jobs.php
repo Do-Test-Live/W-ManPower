@@ -84,7 +84,7 @@ if (!isset($_SESSION['user'])) {
                                 if ($fetch_post_details) {
                                     while ($post = mysqli_fetch_assoc($fetch_post_details)) {
                                         ?>
-                                        <div class="row ps-2 pe-1" id="post">
+                                        <div class="row ps-2 pe-1 mt-3" id="post">
                                             <div class="col-md-12 col-sm-12 pe-2 ps-2" style="box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
 -webkit-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
 -moz-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);">
@@ -124,7 +124,7 @@ if (!isset($_SESSION['user'])) {
                                                                 }
 
                                                                 ?>
-                                                                <button onclick="apply(<?php echo $post['id'];?>)" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0) echo 'disabled'; ?>>
+                                                                <button onclick="apply(<?php echo $post['id'];?>)" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl <?php if ($applied == 0) echo 'bg-orange'; elseif($applied == 2) echo 'bg-lightgreen'; else echo 'bg-current';?> font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0 or $applied == 2) echo 'disabled'; ?>>
                                                                     <?php
                                                                     if ($applied == 0) echo 'Pending'; elseif ($applied == 1)  echo 'Apply Now'; elseif ($applied == 2)  echo 'Approved';
                                                                     ?>

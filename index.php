@@ -77,7 +77,7 @@ include("config/db_config.php");
                         if ($fetch_post->num_rows > 0) {
                             while ($post = mysqli_fetch_assoc($fetch_post)) {
                                 ?>
-                                <div class="row ps-2 pe-1" id="post">
+                                <div class="row ps-2 pe-1 mt-3" id="post">
                                     <div class="col-md-12 col-sm-12 pe-2 ps-2" style="box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
 -webkit-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);
 -moz-box-shadow: -26px 2px 2px 0px rgba(0,88,255,1);">
@@ -93,11 +93,20 @@ include("config/db_config.php");
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
-                                                        <div class="text-center">
-                                                            <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary']; ?></h2>
-                                                        </div>
-                                                        <div class="text-center">
-                                                            <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location']; ?></h2>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="text-center">
+                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary']; ?></h2>
+                                                                </div>
+                                                                <div class="text-center">
+                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location']; ?></h2>
+                                                                </div>
+                                                            </div><!--
+                                                            <div class="col-4 text-right">
+                                                                <button class="feedback" style="top: 10px !important; right: 10px !important;">
+                                                                    <img src="images/whatsapp-logo.png" style="height: 40px">
+                                                                </button>
+                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -136,7 +145,7 @@ include("config/db_config.php");
                                                         }
 
                                                         ?>
-                                                            <button onclick="apply(<?php echo $post['id'];?>)" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0) echo 'disabled'; ?>>
+                                                            <button onclick="apply(<?php echo $post['id'];?>)" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl <?php if ($applied == 0) echo 'bg-orange'; elseif($applied == 2) echo 'bg-lightgreen'; else echo 'bg-current';?> font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0 or $applied == 2) echo 'disabled'; ?>>
                                                                 <?php
                                                                 if ($applied == 0) echo 'Pending'; elseif ($applied == 1)  echo 'Apply Now'; elseif ($applied == 2)  echo 'Approved';
                                                                 ?>
