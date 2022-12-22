@@ -39,12 +39,14 @@ include("config/db_config.php");
             <a href="index.php"><i class="feather-zap text-success display1-size me-2 ms-0"></i><span
                         class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0">GogoJob. </span>
             </a>
-            <a href="#" class="me-2 menu-search-icon mob-menu ms-5"><i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
+            <a href="#" class="me-2 menu-search-icon mob-menu ms-5"><i
+                        class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
         </div>
         <form class="float-left header-search" style="margin-left: 25%;">
             <div class="form-group mb-0 icon-input">
                 <i class="feather-search font-sm text-grey-400"></i>
-                <input type="text" id="filter" placeholder="Start typing to search.." class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
+                <input type="text" id="filter" placeholder="Start typing to search.."
+                       class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg">
             </div>
         </form>
 
@@ -73,7 +75,7 @@ include("config/db_config.php");
                         </div>
 
                         <?php
-                        $fetch_post = $con->query("select * from post where status = '1'");
+                        $fetch_post = $con->query("select * from post where status = '1' order by id desc");
                         if ($fetch_post->num_rows > 0) {
                             while ($post = mysqli_fetch_assoc($fetch_post)) {
                                 ?>
@@ -94,19 +96,24 @@ include("config/db_config.php");
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="row">
-                                                            <div class="col-12">
+                                                            <div class="col-8">
                                                                 <div class="text-center">
                                                                     <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary']; ?></h2>
                                                                 </div>
                                                                 <div class="text-center">
                                                                     <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location']; ?></h2>
                                                                 </div>
-                                                            </div><!--
+                                                            </div>
                                                             <div class="col-4 text-right">
-                                                                <button class="feedback" style="top: 10px !important; right: 10px !important;">
-                                                                    <img src="images/whatsapp-logo.png" style="height: 40px">
-                                                                </button>
-                                                            </div>-->
+                                                                <a href="https://wa.me?text=<?php echo 'Post:' . $post['company_name'] . '; Salary: ' . $post['salary'] . '; Location: ' . $post['location'] . '; To see more details please register at https://manpower.techs.hk/register.php'; ?>"
+                                                                   target="_blank">
+                                                                    <button class="feedback"
+                                                                            style="top: 10px !important; right: 10px !important;">
+                                                                        <img src="images/whatsapp-logo.png"
+                                                                             style="height: 40px">
+                                                                    </button>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,23 +140,25 @@ include("config/db_config.php");
                                                     <div class="col-6">
                                                         <?php
                                                         $select_query = $con->query("SELECT * FROM `applicants` WHERE user_id = '$user_id' and job_id = '$post_id'");
-                                                        if($select_query-> num_rows > 0){
+                                                        if ($select_query->num_rows > 0) {
                                                             $applied = 0;
-                                                            while($status = mysqli_fetch_assoc($select_query)){
-                                                                if($status['status'] == 1){
+                                                            while ($status = mysqli_fetch_assoc($select_query)) {
+                                                                if ($status['status'] == 1) {
                                                                     $applied = 2;
                                                                 }
                                                             }
-                                                        }else{
+                                                        } else {
                                                             $applied = 1;
                                                         }
 
                                                         ?>
-                                                            <button onclick="apply(<?php echo $post['id'];?>)" class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl <?php if ($applied == 0) echo 'bg-orange'; elseif($applied == 2) echo 'bg-lightgreen'; else echo 'bg-current';?> font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0 or $applied == 2) echo 'disabled'; ?>>
-                                                                <?php
-                                                                if ($applied == 0) echo 'Pending'; elseif ($applied == 1)  echo 'Apply Now'; elseif ($applied == 2)  echo 'Approved';
-                                                                ?>
-                                                            </button>
+                                                        <button onclick="apply(<?php echo $post['id']; ?>)"
+                                                                class="text-center p-2 lh-24 w125 ms-1 ls-3 d-inline-block rounded-xl <?php if ($applied == 0) echo 'bg-orange'; elseif ($applied == 2) echo 'bg-lightgreen'; else echo 'bg-current'; ?> font-xsss fw-700 ls-lg text-white" <?php if ($applied == 0 or $applied == 2) echo 'disabled'; ?>>
+                                                            <?php
+                                                            if ($applied == 0) echo 'Pending'; elseif ($applied == 1) echo 'Apply Now';
+                                                            elseif ($applied == 2) echo 'Approved';
+                                                            ?>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,7 +179,7 @@ include("config/db_config.php");
 
         </div>
         <!--whatsapp button-->
-        <?php include ('include/whatsapp.php');?>
+        <?php include('include/whatsapp.php'); ?>
     </div>
     <!-- main content -->
 
@@ -242,7 +251,7 @@ include("config/db_config.php");
                     console.log(post_id);
                 } else if (Result.statusCode == 201) {
                     alert("Error occured !");
-                }else if (Result.statusCode == 202) {
+                } else if (Result.statusCode == 202) {
                     alert("You have already applied for the job!");
                 }
 

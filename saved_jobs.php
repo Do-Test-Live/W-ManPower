@@ -76,7 +76,7 @@ if (!isset($_SESSION['user'])) {
 
                         <?php
                         $user_id = $_SESSION['user'];
-                        $fetch_post = $con->query("select * from saved_post where user_id = '$user_id'");
+                        $fetch_post = $con->query("select * from saved_post where user_id = '$user_id' order by id desc");
                         if ($fetch_post->num_rows > 0) {
                             while ($post_id = mysqli_fetch_assoc($fetch_post)) {
                                 $post_found = $post_id['post_id'];
@@ -100,11 +100,25 @@ if (!isset($_SESSION['user'])) {
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <div class="text-center">
-                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary']; ?></h2>
-                                                                </div>
-                                                                <div class="text-center">
-                                                                    <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location']; ?></h2>
+                                                                <div class="row">
+                                                                    <div class="col-8">
+                                                                        <div class="text-center">
+                                                                            <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['salary']; ?></h2>
+                                                                        </div>
+                                                                        <div class="text-center">
+                                                                            <h2 class="fw-700 font-xsss mt-3 mb-1"><?php echo $post['location']; ?></h2>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4 text-right">
+                                                                        <a href="https://wa.me?text=<?php echo 'Post: ' . $post['company_name'] . '; Salary: ' . $post['salary'] . '; Location: ' . $post['location'] . '; To see more details please register at https://manpower.techs.hk/register.php'; ?>"
+                                                                           target="_blank">
+                                                                            <button class="feedback"
+                                                                                    style="top: 10px !important; right: 10px !important;">
+                                                                                <img src="images/whatsapp-logo.png"
+                                                                                     style="height: 40px">
+                                                                            </button>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
